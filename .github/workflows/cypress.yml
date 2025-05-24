@@ -1,35 +1,51 @@
-name: Cypress Tests
+# name: Cypress Tests
 
-on:
-  push:
-    branches: [main]
-  pull_request:
-    branches: [main]
+# on:
+#   push:
+#     branches: [main]
+#   pull_request:
+#     branches: [main]
+
+# jobs:
+#   cypress-run:
+#     runs-on: ubuntu-latest
+
+#     steps:
+#       - name: Checkout do código
+#         uses: actions/checkout@v3
+
+#       - name: Instalar Node.js
+#         uses: actions/setup-node@v3
+#         with:
+#           node-version: '18'
+
+#       - name: Instalar dependências
+#         run: npm install
+
+#       - name: Rodar testes do Cypress
+#         run: npx cypress run
+
+#       - name: Upload de screenshots e vídeos (em caso de falha)
+#         if: failure()
+#         uses: actions/upload-artifact@v3.0.0
+#         with:
+#           name: cypress-artifacts
+#           path: |
+#             cypress/screenshots
+#             cypress/videos
+
+name: Test Upload Artifact
+
+on: [push]
 
 jobs:
-  cypress-run:
+  test-upload:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout do código
-        uses: actions/checkout@v3
-
-      - name: Instalar Node.js
-        uses: actions/setup-node@v3
+      - uses: actions/checkout@v3
+      - run: echo "Test artifact content" > test.txt
+      - name: Upload artifact
+        uses: actions/upload-artifact@v3
         with:
-          node-version: '18'
-
-      - name: Instalar dependências
-        run: npm install
-
-      - name: Rodar testes do Cypress
-        run: npx cypress run
-
-      - name: Upload de screenshots e vídeos (em caso de falha)
-        if: failure()
-        uses: actions/upload-artifact@v3.0.0
-        with:
-          name: cypress-artifacts
-          path: |
-            cypress/screenshots
-            cypress/videos
+          name: test-artifact
+          path: test.txt
