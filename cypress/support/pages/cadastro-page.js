@@ -16,14 +16,28 @@ class CadastroPage {
       campoAnexo: 'input[type="file"]',
       linkTermo: 'strong',
       aceitarTermo: '.contentButton > [data-variant="primary"]',
-      botaoEnviar: '[type="submit"]',
+      botaoEnviar: '[type="submit"]'
+    };
+  }
+
+  get mensagens(){
+    return{
       mensagemSucesso: '.Toastify__toast-body > :nth-child(2)',
       mensagemObrigatórioDataEmissao: ':nth-child(1) > .sc-byRegH',
       mensagemObrigatórioDataFim: ':nth-child(2) > .sc-byRegH',
       mensagemObrigatórioNomeMedico: ':nth-child(5) > .sc-kNmFTk',
       mensagemObrigatórioNumeroCRM: ':nth-child(6) > .sc-kNmFTk',
-      mensagemObrigatórioUF: '.sc-fdduAw'
-    };
+      mensagemObrigatórioUF: '.sc-fdduAw',
+      mensagemDataInicioNaoPodeSerMaiorQueDataFim: '.sc-bFwXsg',
+      mensagemDataInicioNaoPodeAceitarDataFutura: ':nth-child(1) > .sc-byRegH'
+    }
+  }
+
+  get texto(){
+    return{
+      tipoAfastamento: '.sc-epGxBs',
+      mensagemDeInformacao: '.sc-kFXyV'
+    }
   }
 }
 
