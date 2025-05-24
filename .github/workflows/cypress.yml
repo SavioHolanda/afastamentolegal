@@ -38,6 +38,10 @@ name: Test Upload Artifact
 
 on: [push]
 
+permissions:
+  contents: read
+  actions: write
+  
 jobs:
   test-upload:
     runs-on: ubuntu-latest
