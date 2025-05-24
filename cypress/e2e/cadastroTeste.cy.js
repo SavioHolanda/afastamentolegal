@@ -305,4 +305,4 @@ describe('Cadastro de atestado', () => {
 
     cadastroPage.verificarMensagem('.sc-diYFot', 'É necessário anexar um arquivo imagem, PDF, etc.*')
   });
-})
+}) 
